@@ -7,7 +7,7 @@ On souhaite localiser dans le fichier tous les doublons présents en indiquant l
 Le programme que vous écrirez (en Java) prendra en argument le chemin du fichier de log, et affichera sur la sortie standard chaque doublon trouvé dans le fichier et les lignes où il a été vu.
 
 Vous fournirez l’algorithme le plus optimal en terme de complexité algorithmique, et fournirez dans votre rapport l’analyse de votre algorithme (ainsi que sa complexité).
-### Solution
+### Solution: DuplicateSearch
 
 _Note:_ Le chemin vers le fichier "fichier-ID.log" doit être donné en argument.
 
@@ -20,7 +20,7 @@ Même question que l’exercice 1, mais on ne cherche plus les doublons, mais le
 
 La sortie du programme affiche cette fois chaque anagramme trouvée, sous forme de liste groupée, afin d'identifier les anagrammes simplement, ainsi que leur numéro de ligne.
 
-### Solution
+### Solution: AnagramSearch
 
 _Note:_ Le chemin vers le fichier "fichier-ID.log" doit être donné en argument.
 
