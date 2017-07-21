@@ -6,6 +6,7 @@ import java.util.*;
 public class AnagramSearch extends Utilities {
 
 	public AnagramSearch(String path) throws IOException {
+
 		Map<Integer, String> myList = new HashMap<>();
 		IdList idList = new IdList(path);
 		tmpList = idList.copyList(tmpList);
@@ -13,15 +14,28 @@ public class AnagramSearch extends Utilities {
 		HashMap<Integer, String> tmpH = new HashMap<>();
 		for (int i = 0; i < idList.size(); i++) {
 			myList.put(i, sortString(idList.get(i)));
+			tmpList.set(i, sortString(tmpList.get(i)));
 		}
 
 		Map<Integer, String> sortedMap = sortByValue(myList);
+		tmpList.sort(ALPHABETICAL_ORDER);
 
+
+		System.out.println("with hash");
 		int j;
 		for (Integer key : sortedMap.keySet()) {
 			j = key + 1;
-			if (j < sortedMap.size() && isAnagram(sortedMap.get(key), sortedMap.get(j))){
+			if (j < sortedMap.size() && isAnagram(sortedMap.get(key), sortedMap.get(j))) {
 				System.out.println("Anagram  found: " + "index: " + key + " " + sortedMap.get(key) + ", index:" + j + " " + sortedMap.get(j));
+			}
+		}
+
+		System.out.println("without hash");
+		j = 0;
+		for (int i = 0; i < tmpList.size(); i++) {
+			j = i + 1;
+			if (j < sortedMap.size() && isAnagram(tmpList.get(i), tmpList.get(j))) {
+				System.out.println("Anagram  found: " + "index: " + i + " " + tmpList.get(i) + ", index:" + j + " " + tmpList.get(j));
 			}
 		}
 		System.out.println("aze");
