@@ -8,6 +8,9 @@ Le programme que vous écrirez (en Java) prendra en argument le chemin du fichie
 
 Vous fournirez l’algorithme le plus optimal en terme de complexité algorithmique, et fournirez dans votre rapport l’analyse de votre algorithme (ainsi que sa complexité).
 ### Solution
+
+_Note:_ Le chemin vers le fichier "fichier-ID.log" doit être donné en argument.
+
 Afin de gagner en efficacité on trie les entrées par ordre alphabétique. Ainsi si doublon il y a, ils seront à la suite.
 Pour vérifier les doublons on effectue deux boucles imbriquées la première permettra d'avoir l'id à tester, la deuxième testera si l'entrée suivante est identique. Si oui alors on teste la suivante et ainsi de suite.
 Nous avons donc un algorithme de complexité O(N2).
@@ -18,6 +21,10 @@ Même question que l’exercice 1, mais on ne cherche plus les doublons, mais le
 La sortie du programme affiche cette fois chaque anagramme trouvée, sous forme de liste groupée, afin d'identifier les anagrammes simplement, ainsi que leur numéro de ligne.
 
 ### Solution
+
+_Note:_ Le chemin vers le fichier "fichier-ID.log" doit être donné en argument.
+
+
 On effectue à peu près les mêmes opérations que pour la recherche de doublon. Si ce n'est qu'on va aussi trier les entrées eux-mêmes afin d'obtenir des string "croissante" (ie: abcdefg...). Les anagrammes seront donc les uns à la suite des autres.
 Il nous suffit donc de les comparer grâce à une boucle. La méthode n'est pas optimale car le résultat est difficile à lire. En effet si nous sortons bien les anagrammes, il faut faire une recherche dans les résultats pour connaitre les index d’une anagramme. 
 ex: 
