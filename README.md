@@ -25,3 +25,4 @@ l'id ezvGTY6@R8Nn (index : 609801) a un anagramme situé à l'index 979724 : YNg
 Or sur notre affichage console ces anagrammes ne sont pas à la suite:
 ![exanagram](img/exanagram.png) 
 
+Ici on effectue une succesion de deux boucles imbriquées, ainsi la complexité est aussi en O(N2).
