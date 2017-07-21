@@ -7,54 +7,40 @@ public class AnagramSearch extends Utilities {
 
 	public AnagramSearch(String path) throws IOException {
 
-		HashMap<String, Integer> myList = new HashMap<>();
+		HashMap<Integer, String> myList = new HashMap<>();
 		IdList idList = new IdList(path);
 		tmpList = idList.copyList(tmpList);
 
 		HashMap<Integer, String> tmpH = new HashMap<>();
 		for (int i = 0; i < idList.size(); i++) {
-			myList.put(sortString(idList.get(i)), i);
+			myList.put(i, sortString(idList.get(i)));
 			tmpList.set(i, sortString(tmpList.get(i)));
 		}
 
 		tmpList.sort(ALPHABETICAL_ORDER);
 
 		int j;
-		System.out.println("without hash");
+		ArrayList<String> anagrams = new ArrayList<>();
 		j = 0;
 		for (int i = 0; i < tmpList.size(); i++) {
 			j = i + 1;
 			if (j < tmpList.size() && isAnagram(tmpList.get(i), tmpList.get(j))) {
-				System.out.println("Anagram  found: " + "index: " + myList + " " + tmpList.get(i) + ", index:" + myList.get(j) + " " + tmpList.get(j));
+				anagrams.add(tmpList.get(i));
+			}
+		}
+
+		for (Integer key: myList.keySet()){
+			for (String anagram : anagrams) {
+				if (anagram.equals(myList.get(key))) {
+					System.out.println("Anagram  found: "
+						+ "original: "
+						+ idList.get(key)
+						+ " index: " + key
+						+ " anagram: " + anagram);
+				}
 			}
 		}
 		System.out.println("aze");
-	}
-
-	/**
-	 * From https://www.mkyong.com/java/how-to-sort-a-map-in-java/
-	 */
-	private static Map<Integer, String> sortByValue(Map<Integer, String> unsortMap) {
-
-		// 1. Convert Map to List of Map
-		List<Map.Entry<Integer, String>> list =
-			new LinkedList<Map.Entry<Integer, String>>(unsortMap.entrySet());
-
-		// 2. Sort list with Collections.sort(), provide a custom Comparator
-		//    Try switch the o1 o2 position for a different order
-		Collections.sort(list, new Comparator<Map.Entry<Integer, String>>() {
-			public int compare(Map.Entry<Integer, String> o1,
-			                   Map.Entry<Integer, String> o2) {
-				return (o1.getValue()).compareTo(o2.getValue());
-			}
-		});
-
-		// 3. Loop the sorted list and put it into a new insertion order Map LinkedHashMap
-		Map<Integer, String> sortedMap = new LinkedHashMap<Integer, String>();
-		for (Map.Entry<Integer, String> entry : list) {
-			sortedMap.put(entry.getKey(), entry.getValue());
-		}
-		return sortedMap;
 	}
 
 	private String sortString(String str) {
