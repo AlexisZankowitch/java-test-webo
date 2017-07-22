@@ -1,5 +1,11 @@
 # WEBORAMA Test AZankowitch
 
+## Build
+```bash
+mvn clean install
+```
+You will find _ficheri-ID.log_ into target/classes/ 
+
 ## Exercice 1
 
 On souhaite localiser dans le fichier tous les doublons présents en indiquant les numéros de ligne où ils apparaissent.
@@ -33,3 +39,4 @@ Or sur notre affichage console ces anagrammes ne sont pas à la suite:
 ![exanagram](img/exanagram.png) 
 
 Ici on effectue une succesion de deux boucles imbriquées, ainsi la complexité est aussi en O(N2).
+
